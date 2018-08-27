@@ -6,12 +6,12 @@ import Test.Tasty
 import Test.Tasty.Runners
 import Test.Tasty.HUnit
 import Test.Tasty.QuickCheck
-import Iri.QuasiQuoter
-import qualified Iri.Data as A
-import qualified Iri.Parsing.ByteString as D
-import qualified Iri.Parsing.Text as F
-import qualified Iri.Rendering.Text as C
-import qualified Iri.Rendering.ByteString as E
+import Ri.QuasiQuoter
+import qualified Ri.Data as A
+import qualified Ri.Parsing.ByteString as D
+import qualified Ri.Parsing.Text as F
+import qualified Ri.Rendering.Text as C
+import qualified Ri.Rendering.ByteString as E
 
 
 main =
@@ -47,8 +47,8 @@ main =
       in
         forM_ inputs $ \ input ->
         let
-          Right iri = D.uri input
-          in assertEqual "" input (E.uri iri)
+          Right uri = D.uri input
+          in assertEqual "" input (E.uri uri)
     ,
     testCase "about:blank" $ assertEqual "" "about:blank" (E.uri [uri|about:blank|])
     ,
